@@ -2,36 +2,30 @@ package com.javaweb.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 public class DbUtil {
-    private static Connection connection;
-    private static String url = "jdbc:mysql://localhost:3306/OrderDB";
-    private static String user = "";
-    private static String password = "";
+    private static String url = "jdbc:mysql://localhost:3306/northwind?useSSL=false&autoReconnect=true";
+    private static String user = "root";
+    private static String password = "080704";
 
-    public static Connection getConnection() throws SQLException {
-        connection = DriverManager.getConnection(url, user, password);
-        return connection;
+
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        return (Connection) DriverManager.getConnection(url, user, password);
     }
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
+        Connection con = getConnection();
+        if(con != null) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from Customers where CustomerID >= 10");
 
-    public static Connection getConnection(String dbConfigFile) throws SQLException {
-        try (FileInputStream f = new FileInputStream(dbConfigFile)) {
-            // load the properties file
-            Properties pros = new Properties();
-            pros.load(f);
-            // assign db parameters
-            url = pros.getProperty("url");
-            user = pros.getProperty("user");
-            password = pros.getProperty("password");
-            // create a connection to the database
-            return getConnection();
-        } catch (IOException e) {
-            return null;
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
+            }
+        } else {
+            System.out.println("Error!");
         }
     }
 }

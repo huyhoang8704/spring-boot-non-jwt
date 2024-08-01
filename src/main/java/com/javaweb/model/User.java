@@ -1,4 +1,4 @@
-package com.javaweb.Beans;
+package com.javaweb.model;
 
 public class User {
     private String firstName;

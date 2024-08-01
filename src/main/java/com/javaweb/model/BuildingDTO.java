@@ -1,10 +1,9 @@
-package com.javaweb.Beans;
+package com.javaweb.model;
 
 public class BuildingDTO {
     private int numberOfBasement;
     private String name;
-    private String ward;
-    private String street;
+    private String address;
 
     public int getNumberOfBasement() {
         return numberOfBasement;
@@ -18,17 +17,11 @@ public class BuildingDTO {
     public void setName(String name) {
         this.name = name;
     }
-    public String getWard() {
-        return ward;
+    public String getAddress() {
+        return address;
     }
-    public void setWard(String ward) {
-        this.ward = ward;
-    }
-    public String getStreet() {
-        return street;
-    }
-    public void setStreet(String street) {
-        this.street = street;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 }

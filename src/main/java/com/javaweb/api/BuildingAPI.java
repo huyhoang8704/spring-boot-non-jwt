@@ -15,7 +15,9 @@ public class BuildingAPI {
     private BuildingService buildingService;
     @GetMapping("/building")
     @ResponseBody
-    public List<BuildingDTO> getBuildings(@RequestParam("name") String name) {
+    public List<BuildingDTO> getBuildings(@RequestParam(value = "name" , required = false) String name,
+                                          @RequestParam(value = "typeCode" , required = false) List<String> typeCode) {
+
         List<BuildingDTO> list = buildingService.findAll(name);
         return list;
     }

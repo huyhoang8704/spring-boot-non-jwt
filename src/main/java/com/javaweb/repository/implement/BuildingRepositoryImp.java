@@ -41,4 +41,10 @@ public class BuildingRepositoryImp implements BuildingRepository {
         return list;
     }
 
+    @Override
+    public List<BuildingEntity> find(String req) {
+        StringBuilder sql = new StringBuilder("select * from building b where b.name like '%" + req + "%'");
+        return List.of();
+    }
+
 }

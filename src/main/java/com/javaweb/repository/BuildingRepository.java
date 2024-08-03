@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface BuildingRepository {
     List<BuildingEntity> findAll(String name);
+    List<BuildingEntity> find(String req);
 }

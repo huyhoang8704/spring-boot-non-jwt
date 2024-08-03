@@ -2,6 +2,7 @@ package com.javaweb.Service.implement;
 
 import com.javaweb.Service.BuildingService;
 import com.javaweb.model.BuildingDTO;
+import com.javaweb.model.BuildingResponse;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entity.BuildingEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,12 @@ public class BuildingServiceImp implements BuildingService {
             buildingDTO.setAddress(item.getStreet() + " " + item.getWard());
             result.add(buildingDTO);
         }
-
-
         return result ;
     }
+
+    @Override
+    public List<BuildingResponse> find(String req) {
+        return List.of();
+    }
+
 }

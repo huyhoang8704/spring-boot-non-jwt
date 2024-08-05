@@ -17,12 +17,9 @@ public class BuildingAPI {
     private BuildingService buildingService;
     @GetMapping("/building")
     @ResponseBody
-    public List<BuildingDTO> getBuildings(@RequestBody String req) {
-//        JSONObject jsonObject = new JSONObject(req);
-//        String name = jsonObject.getString("name");
-//        System.out.println(name);
+    public List<BuildingResponse> getBuildings(@RequestBody String req) {
         List<BuildingResponse> list = buildingService.find(req);
-        return null;
+        return list;
     }
 }
 

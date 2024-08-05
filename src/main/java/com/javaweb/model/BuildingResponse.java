@@ -38,10 +38,10 @@ public class BuildingResponse {
         this.managerphonenumber = managerphonenumber;
     }
 
-    public int managername() {
+    public int setManagername() {
         return managername;
     }
-    public void managername(int staffid) {
+    public void setManagername(int staffid) {
         this.managername = staffid;
     }
 

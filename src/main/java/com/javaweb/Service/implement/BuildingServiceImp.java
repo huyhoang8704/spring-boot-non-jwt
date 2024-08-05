@@ -31,7 +31,9 @@ public class BuildingServiceImp implements BuildingService {
 
     @Override
     public List<BuildingResponse> find(String req) {
-        return List.of();
+        List<BuildingEntity> list = buildingRepository.find(req);
+        List<BuildingResponse> result = new ArrayList<BuildingResponse>();
+        return null;
     }
 
 }

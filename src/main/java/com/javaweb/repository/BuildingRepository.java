@@ -1,5 +1,6 @@
 package com.javaweb.repository;
 
+import com.javaweb.model.BuildingResponse;
 import com.javaweb.repository.entity.BuildingEntity;
 
 import java.util.ArrayList;
